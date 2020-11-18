@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FeedComponent } from './components/feed/feed.component';
 import { PostInfoComponent } from './components/post-info/post-info.component';
 import { CommentComponent } from './components/comment/comment.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CommentComponent } from './components/comment/comment.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,9 +11,13 @@ import { FeedService } from 'src/app/services/feed.service';
 })
 export class PostInfoComponent implements OnInit {
 
-  private post : PostModel;
+  public post : PostModel;
   private postId : number;
-  commentsList: Array<CommentModel>;
+  public commentsList: Array<CommentModel>;
+  public allComments: Array<CommentModel>;
+  name : string = "";
+  email : string = "";
+  body : string = "";
 
   constructor(private route: ActivatedRoute, private feedService : FeedService) { }
 
@@ -43,11 +47,46 @@ export class PostInfoComponent implements OnInit {
         (data) => {
           console.log('Comments Retreived', data);
           this.commentsList = data;
+          this.allComments = data
         },
         (error) => {
             console.error(error);
         }
       );
+  }
+
+  filter(){
+    var filteredComment = this.allComments; // to reset commentlist to original data
+
+    if(this.name.trim()){
+      const regex = new RegExp("\\b"+this.name.trim()+"\\b", 'g');
+      filteredComment =  filteredComment.filter((comment) => {
+        return comment.name.match(regex);
+      });
+    }
+
+    if(this.email.trim()){
+      const regex = new RegExp("\\b"+this.email.trim()+"\\b", 'g');
+      filteredComment =  filteredComment.filter((comment) => {
+        return comment.email.match(regex);
+      });
+    }
+
+    if(this.body.trim()){
+      const regex = new RegExp("\\b"+this.body.trim()+"\\b", 'g');
+      filteredComment =  filteredComment.filter((comment) => {
+        return comment.body.match(regex);
+      });
+    }
+
+    this.commentsList = filteredComment;
+  }
+
+  reset(){
+    this.commentsList = this.allComments;
+    this.name = "";
+    this.email = "";
+    this.body = "";
   }
 
 }

@@ -7,19 +7,20 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="basic-addon1">Name</span>
         </div>
-        <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+        <input type="text" class="form-control" placeholder="Name" aria-label="Username" [(ngModel)]="name">
 
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon2">Email</span>
         </div>
-        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon2">
+        <input type="text" class="form-control" placeholder="Email" aria-label="Username" [(ngModel)]="email">
 
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon3">Body</span>
         </div>
-        <input type="text" class="form-control" placeholder="Body" aria-label="Username" aria-describedby="basic-addon3">
+        <input type="text" class="form-control" placeholder="Body" aria-label="Username" [(ngModel)]="body">
 
-        <button type="button" class="btn btn-primary">Search</button>
+        <button type="button" class="btn btn-primary" (click)="filter()">Search</button>
+        <button type="button" class="btn btn-secondary" (click)="reset()">Reset</button>
     </div>
 
 
