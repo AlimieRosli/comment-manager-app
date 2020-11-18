@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="mt-5">
+        <app-post [post]="post" [isFeed]="false"></app-post>
+    </div>
+
+    <div class="input-group mb-3 mt-5">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Name</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon2">Email</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Email" aria-label="Username" aria-describedby="basic-addon2">
+
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon3">Body</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Body" aria-label="Username" aria-describedby="basic-addon3">
+
+        <button type="button" class="btn btn-primary">Search</button>
+    </div>
+
+
+    <div class="row justify-content-center align-items-center mb-5">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header"> Comments </div>
+                <ul class="list-group list-group-flush" *ngFor="let comment of commentsList">
+                    <li class="list-group-item">
+                        <app-comment [comment]="comment"></app-comment>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
